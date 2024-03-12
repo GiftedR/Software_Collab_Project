@@ -4,6 +4,8 @@ namespace github_Collab_Csharp
 {
     internal class DiceRoller
     {
+        private static Random random = new Random();
+
         public static void RollNewNumber()
         {
             // Prompt the user to enter the dice roll command
@@ -12,20 +14,17 @@ namespace github_Collab_Csharp
             // Read the input from the user
             string input = Console.ReadLine();
 
+            // Roll the dice based on the input
+            RollDice(input);
+        }
+
+        private static void RollDice(string input)
+        {
             // Attempt to parse the input
             if (TryParseDiceNotation(input, out int numberOfDice, out int numberOfSides))
             {
-                // Initialize the Random object and a variable to store the total roll
-                Random random = new Random();
-                int totalRoll = 0;
-
-                // Roll the dice the specified number of times
-                for (int i = 0; i < numberOfDice; i++)
-                {
-                    totalRoll += random.Next(1, numberOfSides + 1);
-                }
-
-                // Display the result of the dice rolls
+                // Roll the dice and display the results
+                int totalRoll = RollDiceSet(numberOfDice, numberOfSides);
                 Console.WriteLine($"Result of rolling {numberOfDice}d{numberOfSides}: {totalRoll}");
             }
             else
@@ -33,6 +32,19 @@ namespace github_Collab_Csharp
                 // The input was not in the correct format
                 Console.WriteLine("Invalid input. Please enter a valid dice notation (e.g., '2d6').");
             }
+
+        }
+
+        private static int RollDiceSet(int numberOfDice, int numberOfSides)
+        {
+            int totalRoll = 0;
+
+            // Roll the dice the specified number of times
+            for (int i = 0; i < numberOfDice; i++)
+            {
+                totalRoll += random.Next(1, numberOfSides + 1);
+            }
+            return totalRoll;
         }
 
         private static bool TryParseDiceNotation(string input, out int numberOfDice, out int numberOfSides)
