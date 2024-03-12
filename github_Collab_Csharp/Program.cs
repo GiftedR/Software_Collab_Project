@@ -1,4 +1,6 @@
-﻿namespace github_Collab_Csharp
+﻿using System;
+
+namespace github_Collab_Csharp
 {
     /// <summary>
     /// DO NOT WORK ON MASTER!!!
@@ -7,7 +9,8 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            // Call the DiceRoller from here
+            DiceRoller.RollNewNumber();
         }
     }
 }
