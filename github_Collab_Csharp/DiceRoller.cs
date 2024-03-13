@@ -81,7 +81,7 @@ namespace github_Collab_Csharp
             return false;
         }
 
-        // added a CalculateAverageRoll method
+        // added a CalculateAverageRoll method  (my new attempt)
         public static double CalculateAverageRoll(int numberOfDice, int numberOfSides, int numRolls)
         {
             double totalSum = 0;
