@@ -20,12 +20,28 @@ namespace github_Collab_Csharp
 
         private static void RollDice(string input)
         {
+            string answer = string.Empty;
             // Attempt to parse the input
             if (TryParseDiceNotation(input, out int numberOfDice, out int numberOfSides))
             {
                 // Roll the dice and display the results
                 int totalRoll = RollDiceSet(numberOfDice, numberOfSides);
                 Console.WriteLine($"Result of rolling {numberOfDice}d{numberOfSides}: {totalRoll}");
+                do
+                {
+                    Console.WriteLine("Press 1 to roll again");
+                    Console.WriteLine("Press 2 to Exit");
+                    answer = Console.ReadLine();
+                    if(answer == "1")
+                    {
+                        Console.Clear();
+                        RollNewNumber();
+                    }
+                    else
+                    {
+                        break;
+                    }
+                } while (answer != "2");
             }
             else
             {
