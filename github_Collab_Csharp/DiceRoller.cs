@@ -64,5 +64,16 @@ namespace github_Collab_Csharp
 
             return false;
         }
+
+        // added a CalculateAverageRoll method
+        public static double CalculateAverageRoll(int numberOfDice, int numberOfSides, int numRolls)
+        {
+            double totalSum = 0;
+            for (int i = 0; i < numRolls; i++)
+            {
+                totalSum += RollDiceSet(numberOfDice, numberOfSides);
+            }
+            return totalSum / numRolls;
+        }
     }
 }
