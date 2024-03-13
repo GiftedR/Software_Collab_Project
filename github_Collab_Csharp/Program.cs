@@ -10,6 +10,7 @@ namespace github_Collab_Csharp
         static void Main(string[] args)
         {
             // Call the DiceRoller from here
+            string answer = string.Empty;
             DiceRoller.RollNewNumber();
         }
     }
